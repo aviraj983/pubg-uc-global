@@ -127,7 +127,7 @@ const PaymentMethodIcon = ({ id, className = "w-full h-full" }: { id: string; cl
   if (id === 'bkash') {
     return (
       <img
-        src="/bkash.png"
+        src="https://files.catbox.moe/ofj9fv.png"
         alt="bKash"
         className={cn("w-full h-full object-contain rounded-lg scale-110", className)}
       />
@@ -136,7 +136,7 @@ const PaymentMethodIcon = ({ id, className = "w-full h-full" }: { id: string; cl
   if (id === 'nagad') {
     return (
       <img
-        src="/nagad.png"
+        src="https://files.catbox.moe/kho2jl.png"
         alt="Nagad"
         className={cn("w-full h-full object-contain scale-[1.35]", className)}
       />
@@ -145,7 +145,7 @@ const PaymentMethodIcon = ({ id, className = "w-full h-full" }: { id: string; cl
   if (id === 'easypaisa') {
     return (
       <img
-        src="/easypaisa.png"
+        src="https://files.catbox.moe/jqhd96.png"
         alt="Easypaisa"
         className={cn("w-full h-full object-contain scale-110", className)}
       />
@@ -154,7 +154,7 @@ const PaymentMethodIcon = ({ id, className = "w-full h-full" }: { id: string; cl
   if (id === 'jazzcash') {
     return (
       <img
-        src="/jazzcash.png"
+        src="https://files.catbox.moe/54iuuc.png"
         alt="JazzCash"
         className={cn("w-full h-full object-contain scale-110", className)}
       />
@@ -163,7 +163,7 @@ const PaymentMethodIcon = ({ id, className = "w-full h-full" }: { id: string; cl
   if (id === 'usdt') {
     return (
       <img
-        src="/usdt.png"
+        src="https://files.catbox.moe/q9zsqc.png"
         alt="USDT"
         className={cn("w-full h-full object-contain scale-110", className)}
       />
