@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+  .hardware-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, oklch(1 0 0 / 5%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 5%) 1px, transparent 1px);
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 10px oklch(from var(--primary) l c h / 0.5);
+  }
+}
+
+:root {
+    --background: oklch(0.08 0.01 25); /* Deep dark obsidian/graphite */
+    --foreground: oklch(0.98 0.005 25);
+    --card: oklch(0.12 0.015 25); /* Dark sleek card */
+    --card-foreground: oklch(0.98 0.005 25);
+    --popover: oklch(0.12 0.015 25);
+    --popover-foreground: oklch(0.98 0.005 25);
+    --primary: oklch(0.60 0.24 25); /* Vibrant PUBG Red */
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.18 0.03 25);
+    --secondary-foreground: oklch(0.98 0.005 25);
+    --muted: oklch(0.16 0.02 25);
+    --muted-foreground: oklch(0.70 0.015 25);
+    --accent: oklch(0.24 0.06 25);
+    --accent-foreground: oklch(0.98 0.005 25);
+    --destructive: oklch(0.55 0.22 25);
+    --border: oklch(1 0 0 / 12%);
+    --input: oklch(1 0 0 / 8%);
+    --ring: oklch(0.60 0.24 25);
+    --radius: 1rem;
+}
+
+.dark {
+    --background: oklch(0.08 0.01 25);
+    --foreground: oklch(0.98 0.005 25);
+    --card: oklch(0.12 0.015 25);
+    --card-foreground: oklch(0.98 0.005 25);
+    --popover: oklch(0.12 0.015 25);
+    --popover-foreground: oklch(0.98 0.005 25);
+    --primary: oklch(0.60 0.24 25);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.18 0.03 25);
+    --secondary-foreground: oklch(0.98 0.005 25);
+    --muted: oklch(0.16 0.02 25);
+    --muted-foreground: oklch(0.70 0.015 25);
+    --accent: oklch(0.24 0.06 25);
+    --accent-foreground: oklch(0.98 0.005 25);
+    --destructive: oklch(0.55 0.22 25);
+    --border: oklch(1 0 0 / 12%);
+    --input: oklch(1 0 0 / 8%);
+    --ring: oklch(0.60 0.24 25);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    }
+}
+
+/* Mobile-specific optimizations */
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile scrollbar styling */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.60 0.24 25 / 35%);
+    border-radius: 10px;
+  }
+}
